@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+  <h2 style=" margin-top: 90px; text-align: center; background-color: rgb(218, 237, 243);">Sve liste</h2>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Redni broj liste</th>
+            <th scope="col">Naziv</th>
+            <th scope="col">Slogan</th>
+            <th scope="col">Zahtev za prijavu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lista of liste; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{lista.naziv}}</td>
+            <td>{{lista.slogan}}</td>  
+            <td>
+              <button 
+                type="button" 
+                style="width: 100px; align-items: center;" 
+                class="btn btn-success"
+                (click)="prijaviIzbListu(lista)"
+                (click)="lista.poslato = true">Pošaljite</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 *ngIf="cekanje.length > 0" style="text-align: center; background-color: rgb(218, 237, 243);">Lista "na čekanju"</h2>
+      <table *ngIf="cekanje.length > 0" class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Redni broj liste</th>
+            <th scope="col">Naziv</th>
+            <th scope="col">Slogan</th>
+            <th scope="col">Otkaži zahtev</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let listica of cekanje; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{listica.naziv}}</td>
+            <td>{{listica.slogan}}</td>  
+            <td>
+              <button 
+                type="button" 
+                style="width: 100px; align-items: center;" 
+                class="btn btn-success"
+                (click)="povuciKandidaturu(user)"
+                (click)="listica.poslato = true">Otkažite</button>
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+</body>
+</html>

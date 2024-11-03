@@ -1,0 +1,92 @@
+html { height:100%; }
+body { position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+ 
+  display: flex; /* Koristimo fleksibilni kontejner */
+  justify-content: center; /* Horizontalno centriranje */
+  align-items: center; /* Vertikalno centriranje */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+form
+{
+  margin-top:90px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3%;
+  height: 350px;
+  width: 300px;
+  margin: 0 px auto;
+  background-color: rgba(238, 234, 234, 0.345);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-y: auto;
+}
+form::before {
+  content: "▼"; /* Unicode karakter za strelicu nadole */
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: 8px;
+  transform: translateY(-50%); /* Centriranje vertikalno */
+  z-index: 1; /* Postavite z-index tako da strelica bude iznad klizača */
+  transition: transform 0.3s ease-in-out;
+}
+form:hover::before {
+  transform: translateY(0); /* Prikazati strelicu kada se pređe preko forme */
+}
+/* Sakriti strelicu kada nema potrebe za klizanjem */
+form:not(:hover) {
+  overflow-y: hidden;
+}
+form:not(:hover)::before {
+  display: none;
+}
+input
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 30px;
+  width: 220px;
+  margin:6px auto;
+  text-align: left;
+  border: none;
+  border-radius: 7px;
+  background-color:white;
+}
+button
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 220px;
+  height: 30px;
+  margin: 6px auto;
+  background-color: deepskyblue;
+  border: none;
+  border-radius:7px;
+  text-align: center;
+}
+button:hover
+{
+  color: rgb(7, 7, 7);
+  background-color: rgb(196, 201, 201);
+  cursor: pointer;
+}
+a
+{
+  text-decoration: none;
+  border: 1px solid deepskyblue;
+  background-color: deepskyblue;
+  color: black;
+
+}
+.form-select form-select-lg {
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  

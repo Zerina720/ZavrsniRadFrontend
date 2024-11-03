@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form [formGroup]="nosilacLForm" style="background-color: rgb(248, 248, 244);">
+    <h2 style="margin: 30px auto;">Dodajte nosioca</h2>
+    <div style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small;" class="alert alert-dark" role="alert" *ngIf="error">
+     </div>
+    <div style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small;" *ngIf="(nosilacLForm.controls['jmbg'].invalid || nosilacLForm.controls['ime'].invalid || nosilacLForm.controls['prezime'].invalid || nosilacLForm.controls['titula'].invalid) && (nosilacLForm.controls['jmbg'].touched ||  nosilacLForm.controls['ime'].touched || nosilacLForm.controls['prezime'].touched || nosilacLForm.controls['titula'].touched )" class="text-danger">
+      Obavezno je popuniti sva polja.
+    </div>
+     <!-- JMBG input -->
+     <div class="form-outline mb-4">
+        <input type="text" id="form2Example1" class="form-control" placeholder="JMBG" formControlName="jmbg" />
+        <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small;" class="alert alert-danger small-alert" *ngIf="jmbg?.errors?.pattern">JMBG mora sadržati tačno 13<strong> brojeva</strong>!</p>
+      </div>
+    <!-- Ime input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="form2Example1" placeholder="Ime" class="form-control" formControlName="ime" />     
+    </div>
+    <!-- Prezime input -->
+    <div class="form-outline mb-4">
+        <input type="text" id="form2Example1" placeholder="Prezime" class="form-control" formControlName="prezime" />     
+      </div>
+    <!-- Titula input -->
+    <div class="form-outline mb-4">
+        <input type="text" id="form2Example1" placeholder="Titula" class="form-control" formControlName="titula" />     
+      </div>  
+<button type="button" class="btn btn-primary btn-block mb-4" (click)="kreirajNosioca()" [disabled]="!nosilacLForm.valid" >Dodajte nosioca Vaše liste</button>
+</form>
+</body>

@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+    <h2 style=" margin-top: 90px; text-align: center; background-color: rgb(218, 237, 243);">Vaša lista</h2>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Redni broj liste</th>
+            <th scope="col">Naziv</th>
+            <th scope="col">Slogan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lista of liste; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{lista.naziv}}</td>
+            <td>{{lista.slogan}}</td>  
+          </tr>
+        </tbody>
+      </table>
+      <h2  style="text-align: center;background-color: rgb(218, 237, 243);">Nosilac Vaše liste</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">JMBG</th>
+            <th scope="col">Ime</th>
+            <th scope="col">Prezime</th>
+            <th scope="col">Titula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="nosioci">
+            <td>{{nosioci.jmbg}}</td>
+            <td>{{nosioci.ime}}</td>
+            <td>{{nosioci.prezime}}</td>
+            <td>{{nosioci.titula}}</td>    
+        </tr>
+        </tbody>
+      </table>
+      <h2 style="text-align: center; background-color: rgb(218, 237, 243);">Stranke/grupe građana sa kojima ste na istoj listi</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sedište</th>
+            <th scope="col">Naziv</th>
+            <th scope="col">Pib</th>
+            <th scope="col">Skraćeno ime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let korisnik of korisnici">
+            <th scope="row">{{korisnik.sediste}}</th>
+            <td>{{korisnik.naziv}}</td>
+            <td>{{korisnik.pib}}</td>
+            <td>{{korisnik.userName}}</td>   
+        </tr>
+        </tbody>
+      </table>
+      
+</body>
+</html>

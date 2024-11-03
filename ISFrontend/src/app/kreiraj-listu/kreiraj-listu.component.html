@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form [formGroup]="kreirajLForm" style="background-color: rgb(248, 248, 244);">
+    <h2 style="margin: 30px auto;">Kreirajte listu</h2>
+    <div style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small;" class="alert alert-dark" role="alert" *ngIf="error">
+      {{errorMsg}}
+     </div>
+    <div style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small;" *ngIf="(kreirajLForm.controls['naziv'].invalid || kreirajLForm.controls['slogan'].invalid) && (kreirajLForm.controls['slogan'].touched ||  kreirajLForm.controls['naziv'].touched)" class="text-danger">
+      Obavezno je popuniti sva polja.
+    </div>
+     <!-- Naziv input -->
+     <div class="form-outline mb-4">
+        <input type="text" id="form2Example1" class="form-control" placeholder="Naziv" formControlName="naziv" />
+      </div>
+    <!-- Slogan input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="form2Example1" placeholder="Slogan" class="form-control" formControlName="slogan" />     
+    </div>
+<button type="button" class="btn btn-primary btn-block mb-4" (click)="kreirajListu()" [disabled]="!kreirajLForm.valid" >Kreirajte listu</button><br>
+<hr style="width:250px; margin:auto;"><br>
+<p>Želite da dodate nosioca liste?</p>
+<button type="submit" style="width: 180px;" routerLink="/nosilacL">Dodajte</button>
+</form>
+</body>
